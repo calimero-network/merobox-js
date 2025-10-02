@@ -12,7 +12,7 @@
  * Run with: node examples/integration-example.js
  */
 
-const { ensureMerobox, runMerobox, isMeroboxAvailable } = require('../dist/index.js');
+import { ensureMerobox, runMerobox, isMeroboxAvailable } from '../dist/index.js';
 
 class Application {
   constructor() {

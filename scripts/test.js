@@ -5,7 +5,7 @@
  * Run with: npm test
  */
 
-const { isMeroboxAvailable, getMeroboxPath } = require('../dist/index.js');
+import { isMeroboxAvailable, getMeroboxPath } from '../dist/index.js';
 
 async function runTests() {
   console.log('Running tests for @calimero-network/merobox...\n');
@@ -13,7 +13,7 @@ async function runTests() {
   // Test 1: Check if platform detection works
   console.log('1. Testing platform detection...');
   try {
-    const { detectPlatform, isPlatformSupported } = require('../dist/platform.js');
+    const { detectPlatform, isPlatformSupported } = await import('../dist/platform.js');
     const platform = detectPlatform();
     const supported = isPlatformSupported();
     

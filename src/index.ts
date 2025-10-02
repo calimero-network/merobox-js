@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { execa } from 'execa';
 import fs from 'node:fs';
 
@@ -8,7 +9,7 @@ import fs from 'node:fs';
  * @throws Error if the binary is not found
  */
 function binPath(): string {
-  const here = __dirname;
+  const here = path.dirname(new URL(import.meta.url).pathname);
   const candidate = path.resolve(here, '..', 'bin', process.platform === 'win32' ? 'merobox.exe' : 'merobox');
   if (!fs.existsSync(candidate)) {
     throw new Error('merobox binary not found. Did postinstall run? Run npm install to download the binary.');

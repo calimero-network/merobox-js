@@ -11,7 +11,7 @@
  * Run with: node examples/basic-usage.js
  */
 
-const { ensureMerobox, runMerobox, getMeroboxVersion, isMeroboxAvailable } = require('../dist/index.js');
+import { ensureMerobox, runMerobox, getMeroboxVersion, isMeroboxAvailable } from '../dist/index.js';
 
 async function main() {
   console.log('Basic @calimero-network/merobox usage example\n');

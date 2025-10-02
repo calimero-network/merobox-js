@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "JS wrapper for merobox CLI",
   "main": "dist/index.js",
+  "type": "module",
   "types": "dist/index.d.ts",
   "bin": {
     "merobox": "bin/merobox"
