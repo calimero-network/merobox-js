@@ -2,12 +2,12 @@
 
 ## Overview
 
-The `@calimero/merobox` package provides a JavaScript wrapper for the merobox CLI tool. It automatically downloads the appropriate binary for your platform and provides both CLI access and a programmatic API.
+The `@calimero-network/merobox` package provides a JavaScript wrapper for the merobox CLI tool. It automatically downloads the appropriate binary for your platform and provides both CLI access and a programmatic API.
 
 ## Installation
 
 ```bash
-npm install @calimero/merobox
+npm install @calimero-network/merobox
 ```
 
 ## API Reference
@@ -24,7 +24,7 @@ Ensures merobox is available and working. Returns the path to the merobox binary
 
 **Example:**
 ```typescript
-import { ensureMerobox } from '@calimero/merobox';
+import { ensureMerobox } from '@calimero-network/merobox';
 
 const binPath = await ensureMerobox();
 console.log('merobox binary at:', binPath);
@@ -48,7 +48,7 @@ Runs merobox with the given arguments.
 
 **Example:**
 ```typescript
-import { runMerobox } from '@calimero/merobox';
+import { runMerobox } from '@calimero-network/merobox';
 
 await runMerobox(['health']);
 await runMerobox(['list'], { cwd: '/path/to/project' });
@@ -62,7 +62,7 @@ Returns the version of the installed merobox binary.
 
 **Example:**
 ```typescript
-import { getMeroboxVersion } from '@calimero/merobox';
+import { getMeroboxVersion } from '@calimero-network/merobox';
 
 const version = await getMeroboxVersion();
 console.log('merobox version:', version);
@@ -76,7 +76,7 @@ Checks if merobox is available without throwing an error.
 
 **Example:**
 ```typescript
-import { isMeroboxAvailable } from '@calimero/merobox';
+import { isMeroboxAvailable } from '@calimero-network/merobox';
 
 const available = await isMeroboxAvailable();
 if (available) {
@@ -96,7 +96,7 @@ Returns the path to the merobox binary (synchronous).
 
 **Example:**
 ```typescript
-import { getMeroboxPath } from '@calimero/merobox';
+import { getMeroboxPath } from '@calimero-network/merobox';
 
 const binPath = getMeroboxPath();
 console.log('merobox binary at:', binPath);
@@ -121,7 +121,7 @@ interface PlatformInfo {
 
 **Example:**
 ```typescript
-import { detectPlatform } from '@calimero/merobox';
+import { detectPlatform } from '@calimero-network/merobox';
 
 const platform = detectPlatform();
 console.log(`Platform: ${platform.os}-${platform.arch}`);
@@ -135,7 +135,7 @@ Checks if the current platform is supported.
 
 **Example:**
 ```typescript
-import { isPlatformSupported } from '@calimero/merobox';
+import { isPlatformSupported } from '@calimero-network/merobox';
 
 if (isPlatformSupported()) {
   console.log('Platform is supported');
@@ -168,9 +168,9 @@ The package provides clear error messages for common issues:
 After installation, you can use merobox directly from the command line:
 
 ```bash
-npx @calimero/merobox --version
-npx @calimero/merobox health
-npx @calimero/merobox list
+npx @calimero-network/merobox --version
+npx @calimero-network/merobox health
+npx @calimero-network/merobox list
 ```
 
 ## Integration Examples
@@ -179,7 +179,7 @@ npx @calimero/merobox list
 
 ```typescript
 import { test } from '@playwright/test';
-import { ensureMerobox, runMerobox } from '@calimero/merobox';
+import { ensureMerobox, runMerobox } from '@calimero-network/merobox';
 
 test.beforeAll(async () => {
   await ensureMerobox();
@@ -201,7 +201,7 @@ test('e2e test', async ({ page }) => {
 
 ```typescript
 import { describe, it, beforeAll, afterAll } from 'vitest';
-import { ensureMerobox, runMerobox } from '@calimero/merobox';
+import { ensureMerobox, runMerobox } from '@calimero-network/merobox';
 
 describe('merobox integration', () => {
   beforeAll(async () => {
@@ -223,7 +223,7 @@ describe('merobox integration', () => {
 ### Node.js Application
 
 ```javascript
-const { ensureMerobox, runMerobox } = require('@calimero/merobox');
+const { ensureMerobox, runMerobox } = require('@calimero-network/merobox');
 
 async function startApp() {
   try {

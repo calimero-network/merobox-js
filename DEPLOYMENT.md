@@ -1,4 +1,4 @@
-# Deployment Guide for @calimero/merobox
+# Deployment Guide for @calimero-network/merobox
 
 This document outlines the deployment process for the merobox Node.js wrapper package.
 
@@ -111,7 +111,7 @@ jobs:
    sha256sum merobox-v0.1.0-* > checksums.txt
    ```
 
-### 4. Update @calimero/merobox
+### 4. Update @calimero-network/merobox
 
 1. Update the version in `package.json`
 2. Update the default version in `scripts/postinstall.js`
@@ -121,7 +121,7 @@ jobs:
    npm test
    ```
 
-### 5. Publish @calimero/merobox
+### 5. Publish @calimero-network/merobox
 
 1. Set up npm authentication:
    ```bash
@@ -139,12 +139,12 @@ Once both packages are published:
 
 ```bash
 # Test the npm package
-npm install @calimero/merobox
-npx @calimero/merobox --version
+npm install @calimero-network/merobox
+npx @calimero-network/merobox --version
 
 # Test programmatic usage
 node -e "
-const { ensureMerobox, runMerobox } = require('@calimero/merobox');
+const { ensureMerobox, runMerobox } = require('@calimero-network/merobox');
 ensureMerobox().then(bin => console.log('Binary:', bin));
 "
 ```

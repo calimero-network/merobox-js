@@ -1,5 +1,5 @@
 {
-  "name": "@calimero/merobox",
+  "name": "@calimero-network/merobox",
   "version": "0.1.0",
   "description": "JS wrapper for merobox CLI",
   "main": "dist/index.js",

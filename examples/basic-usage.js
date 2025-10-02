@@ -14,7 +14,7 @@
 const { ensureMerobox, runMerobox, getMeroboxVersion, isMeroboxAvailable } = require('../dist/index.js');
 
 async function main() {
-  console.log('Basic @calimero/merobox usage example\n');
+  console.log('Basic @calimero-network/merobox usage example\n');
   
   // Check availability
   console.log('1. Checking merobox availability...');
