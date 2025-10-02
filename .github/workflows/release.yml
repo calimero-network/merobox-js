@@ -2,39 +2,26 @@ name: Release
 
 on:
   push:
-    tags:
-      - 'v*'                      # e.g. v0.2.0
+    branches:
+      - master
+      - beta
   workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version to release (e.g., v0.2.0)'
-        required: true
-        type: string
-
-permissions:
-  contents: write                 # needed to create GitHub Releases
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    env:
-      # npm auth for both npm CLI and any tooling that expects NPM_TOKEN
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          registry-url: https://registry.npmjs.org
-          always-auth: true
-          cache: 'npm'
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: npm ci
@@ -42,43 +29,11 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Test
+      - name: Run tests
         run: npm test
-        continue-on-error: true       # keep if you want releases even when tests flake
 
-      # Create the GitHub Release from the pushed tag
-      - name: Create GitHub Release
-        id: create_release
-        uses: softprops/action-gh-release@v2
-        with:
-          name: Release ${{ github.ref_name }}
-          draft: false
-          prerelease: false
+      - name: Semantic Release
+        run: npm run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # Pack exactly what gets published and expose the filename as an output
-      - name: Pack npm tarball
-        id: pack
-        run: |
-          set -euo pipefail
-          rm -f *.tgz
-          FILE="$(npm pack --silent)"
-          echo "pkg_tgz=$FILE" >> "$GITHUB_OUTPUT"
-
-      # Publish to npm (first scoped publish may need --access public)
-      - name: Publish to npm
-        run: |
-          if npm show . name >/dev/null 2>&1; then
-            npm publish
-          else
-            npm publish --access public
-          fi
-
-      # Upload the tarball to the GitHub Release
-      - name: Upload package tarball to Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: ${{ steps.pack.outputs.pkg_tgz }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
