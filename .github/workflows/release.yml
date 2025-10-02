@@ -32,6 +32,13 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Configure NPM Authentication
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Semantic Release
         run: npm run semantic-release
         env:
