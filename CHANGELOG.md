@@ -1,3 +1,16 @@
+## [0.0.2](https://github.com/calimero-network/merobox-js/compare/v0.0.1...v0.0.2) (2025-10-02)
+
+
+### Bug Fixes
+
+* add explicit npm authentication configuration ([f697044](https://github.com/calimero-network/merobox-js/commit/f697044c8b48847e28e845f4ec7a52f9b85b8457))
+* add GitHub permissions for semantic-release ([de463cf](https://github.com/calimero-network/merobox-js/commit/de463cf9ba644ca8e6095336a4f5d4b3c5e9218f))
+* configure npm authentication for semantic-release ([299537b](https://github.com/calimero-network/merobox-js/commit/299537b10cbe5f1f6088f88d5914bf035083ddf7))
+* optimize postinstall script for ES modules and performance ([764b0bb](https://github.com/calimero-network/merobox-js/commit/764b0bb8f0b6ada5f62683b00022cf58ad0adc01))
+* restore proper semantic-release workflow ([55f1bfb](https://github.com/calimero-network/merobox-js/commit/55f1bfb940534c3ab97e408914a367c2f289bb16))
+* simplify npm authentication configuration ([7f4d0d5](https://github.com/calimero-network/merobox-js/commit/7f4d0d55642766c8c5263c26ae2c2b63edeae828))
+* use setup-node action for npm authentication ([08cb870](https://github.com/calimero-network/merobox-js/commit/08cb87002b7b2ac89f8ccc66a69f78d7ec67e584))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.

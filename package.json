@@ -1,6 +1,6 @@
 {
   "name": "@calimero-network/merobox-js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "JS wrapper for merobox CLI",
   "main": "dist/index.js",
   "type": "module",
@@ -8,7 +8,14 @@
   "bin": {
     "merobox": "bin/merobox"
   },
-  "files": ["bin", "dist", "README.md", "API.md", "CHANGELOG.md", "LICENSE"],
+  "files": [
+    "bin",
+    "dist",
+    "README.md",
+    "API.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
   "scripts": {
     "postinstall": "node scripts/postinstall.js",
     "build": "tsc -p tsconfig.json",
@@ -19,8 +26,8 @@
     "release": "semantic-release",
     "setup-release": "node scripts/setup-semantic-release.js"
   },
-  "engines": { 
-    "node": ">=18" 
+  "engines": {
+    "node": ">=18"
   },
   "optionalDependencies": {},
   "devDependencies": {
@@ -36,7 +43,12 @@
     "@semantic-release/release-notes-generator": "^13.0.0",
     "conventional-changelog-conventionalcommits": "^7.0.2"
   },
-  "keywords": ["merobox", "calimero", "blockchain", "cli"],
+  "keywords": [
+    "merobox",
+    "calimero",
+    "blockchain",
+    "cli"
+  ],
   "author": "Calimero Network",
   "license": "MIT",
   "repository": {
@@ -44,7 +56,9 @@
     "url": "https://github.com/calimero-network/merobox-js.git"
   },
   "homepage": "https://github.com/calimero-network/merobox-js#readme",
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
