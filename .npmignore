@@ -1,0 +1,24 @@
+# Source files
+src/
+scripts/
+tsconfig.json
+
+# Development files
+.gitignore
+.npmignore
+README.md
+LICENSE
+
+# Build artifacts
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
