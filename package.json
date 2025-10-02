@@ -41,10 +41,6 @@
     "url": "https://github.com/calimero-network/merobox-js.git"
   },
   "homepage": "https://github.com/calimero-network/merobox-js#readme",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
