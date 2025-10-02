@@ -1,11 +1,11 @@
-# @calimero-network/merobox
+# @calimero-network/merobox-js
 
 JavaScript wrapper for the merobox CLI tool. This package automatically downloads the appropriate merobox binary for your platform and provides both CLI access and a programmatic API.
 
 ## Installation
 
 ```bash
-npm install @calimero-network/merobox
+npm install @calimero-network/merobox-js
 ```
 
 ## Usage
@@ -15,15 +15,15 @@ npm install @calimero-network/merobox
 After installation, you can use merobox directly from the command line:
 
 ```bash
-npx @calimero-network/merobox --version
-npx @calimero-network/merobox health
-npx @calimero-network/merobox list
+npx @calimero-network/merobox-js --version
+npx @calimero-network/merobox-js health
+npx @calimero-network/merobox-js list
 ```
 
 ### Programmatic API
 
 ```typescript
-import { ensureMerobox, runMerobox, getMeroboxVersion } from '@calimero-network/merobox';
+import { ensureMerobox, runMerobox, getMeroboxVersion } from '@calimero-network/merobox-js';
 
 // Ensure merobox is available
 const binPath = await ensureMerobox();
@@ -42,7 +42,7 @@ console.log('merobox version:', version);
 
 ```typescript
 import { test } from '@playwright/test';
-import { ensureMerobox, runMerobox } from '@calimero-network/merobox';
+import { ensureMerobox, runMerobox } from '@calimero-network/merobox-js';
 
 test.beforeAll(async () => {
   await ensureMerobox();
@@ -113,7 +113,7 @@ Note: Windows is not currently supported by merobox releases.
 If you get "merobox binary not found", try:
 
 ```bash
-npm install @calimero-network/merobox --force
+npm install @calimero-network/merobox-js --force
 ```
 
 ### Platform not supported

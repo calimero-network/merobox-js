@@ -140,11 +140,11 @@ Once both packages are published:
 ```bash
 # Test the npm package
 npm install @calimero-network/merobox
-npx @calimero-network/merobox --version
+npx @calimero-network/merobox-js --version
 
 # Test programmatic usage
 node -e "
-const { ensureMerobox, runMerobox } = require('@calimero-network/merobox');
+const { ensureMerobox, runMerobox } = require('@calimero-network/merobox-js');
 ensureMerobox().then(bin => console.log('Binary:', bin));
 "
 ```

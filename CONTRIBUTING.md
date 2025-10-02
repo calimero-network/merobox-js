@@ -1,6 +1,6 @@
-# Contributing to @calimero-network/merobox
+# Contributing to @calimero-network/merobox-js
 
-Thank you for your interest in contributing to @calimero-network/merobox! This document provides guidelines for contributing to the project.
+Thank you for your interest in contributing to @calimero-network/merobox-js! This document provides guidelines for contributing to the project.
 
 ## Development Setup
 
@@ -177,4 +177,4 @@ If you have questions about contributing, please:
 2. Create a new issue with the "question" label
 3. Reach out to the maintainers
 
-Thank you for contributing to @calimero-network/merobox!
+Thank you for contributing to @calimero-network/merobox-js!

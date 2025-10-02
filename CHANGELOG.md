@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release of @calimero-network/merobox
 - Automatic binary download for supported platforms (macOS, Linux)
 - SHA256 checksum verification for security
-- CLI access via `npx @calimero-network/merobox`
+- CLI access via `npx @calimero-network/merobox-js`
 - TypeScript API for programmatic use
 - Platform detection utilities
 - Support for merobox v0.1.23

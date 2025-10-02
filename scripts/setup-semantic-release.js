@@ -8,7 +8,7 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('🔧 Setting up semantic-release for @calimero-network/merobox...\n');
+console.log('🔧 Setting up semantic-release for @calimero-network/merobox-js...\n');
 
 // Check if .releaserc.json exists
 const releasercPath = path.join(__dirname, '..', '.releaserc.json');

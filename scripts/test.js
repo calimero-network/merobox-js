@@ -8,7 +8,7 @@
 import { isMeroboxAvailable, getMeroboxPath } from '../dist/index.js';
 
 async function runTests() {
-  console.log('Running tests for @calimero-network/merobox...\n');
+  console.log('Running tests for @calimero-network/merobox-js...\n');
   
   // Test 1: Check if platform detection works
   console.log('1. Testing platform detection...');
