@@ -1,3 +1,10 @@
+## [0.0.3](https://github.com/calimero-network/merobox-js/compare/v0.0.2...v0.0.3) (2025-10-02)
+
+
+### Bug Fixes
+
+* **package:** include scripts/ in published files so postinstall works ([282d0c3](https://github.com/calimero-network/merobox-js/commit/282d0c35b983286b68f41b194479534057cb28a2))
+
 ## [0.0.2](https://github.com/calimero-network/merobox-js/compare/v0.0.1...v0.0.2) (2025-10-02)
 
 
