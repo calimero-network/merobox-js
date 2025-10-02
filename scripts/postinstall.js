@@ -1,36 +1,42 @@
-const os = require('os');
-const fs = require('fs');
-const path = require('path');
-const https = require('https');
-const crypto = require('crypto');
+import os from 'node:os';
+import fs from 'node:fs';
+import path from 'node:path';
+import https from 'node:https';
+import crypto from 'node:crypto';
+import { execSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
 const VERSION = process.env.MEROBOX_VERSION || "v0.1.23"; // pin to merobox release tag
 const PLATFORM = detect(); // { os: 'darwin'|'linux'|'win32', arch: 'x64'|'arm64', libc: 'glibc'|'musl'|null }
 const assetName = makeAssetName(VERSION, PLATFORM);
 // e.g. merobox-v0.1.0-darwin-arm64 (add .exe on Windows)
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const destDir = path.join(__dirname, '..', 'bin');
 const destPath = path.join(destDir, process.platform === 'win32' ? 'merobox.exe' : 'merobox');
 
 (async () => {
+  // Check if binary already exists and is valid
+  if (fs.existsSync(destPath)) {
+    try {
+      // Test if the binary is executable and working
+      execSync(`${destPath} --version`, { stdio: 'pipe' });
+      console.log(`@calimero/merobox already installed: ${destPath}`);
+      return;
+    } catch (error) {
+      // Binary exists but is corrupted, remove it
+      console.log('Existing binary is corrupted, re-downloading...');
+      fs.unlinkSync(destPath);
+    }
+  }
+
   console.log(`Installing merobox ${VERSION} for ${PLATFORM.os}-${PLATFORM.arch}...`);
   
   fs.mkdirSync(destDir, { recursive: true });
 
-  // Use GitHub API to get direct download URLs
-  const apiUrl = `https://api.github.com/repos/calimero-network/merobox/releases/tags/${VERSION}`;
-  const releaseData = await download(apiUrl, 'utf8');
-  const release = JSON.parse(releaseData);
-  
-  const binaryAsset = release.assets.find(asset => asset.name === assetName);
-  const shaAsset = release.assets.find(asset => asset.name === `${assetName}.sha256`);
-  
-  if (!binaryAsset || !shaAsset) {
-    throw new Error(`Assets not found for ${assetName}`);
-  }
-  
-  const url = binaryAsset.browser_download_url;
-  const shaUrl = shaAsset.browser_download_url;
+  // Use direct download URLs (faster than API call)
+  const url = `https://github.com/calimero-network/merobox/releases/download/${VERSION}/${assetName}`;
+  const shaUrl = `https://github.com/calimero-network/merobox/releases/download/${VERSION}/${assetName}.sha256`;
 
   console.log(`Downloading from: ${url}`);
   
@@ -111,8 +117,7 @@ function detect() {
   
   if (osPlat === 'linux') {
     try {
-      const ldd = require('child_process')
-        .execSync('ldd --version || ldd /bin/sh || true', { stdio: ['ignore', 'pipe', 'ignore'] })
+      const ldd = execSync('ldd --version || ldd /bin/sh || true', { stdio: ['ignore', 'pipe', 'ignore'] })
         .toString();
       libc = /musl/i.test(ldd) ? 'musl' : 'glibc';
     } catch {}

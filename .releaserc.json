@@ -24,5 +24,8 @@
       }
     ]
   ],
-  "preset": "conventionalcommits"
+  "preset": "conventionalcommits",
+  "release": {
+    "branches": ["master", "beta"]
+  }
 }
