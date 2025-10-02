@@ -12,7 +12,11 @@
     "postinstall": "node scripts/postinstall.js",
     "build": "tsc -p tsconfig.json",
     "test": "node scripts/test.js",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "semantic-release": "semantic-release",
+    "commit": "git-cz",
+    "release": "semantic-release",
+    "setup-release": "node scripts/setup-semantic-release.js"
   },
   "engines": { 
     "node": ">=18" 
@@ -21,7 +25,12 @@
   "devDependencies": {
     "execa": "^9.3.0",
     "typescript": "^5.6.0",
-    "@types/node": "^20.12.12"
+    "@types/node": "^20.12.12",
+    "semantic-release": "^22.0.12",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1"
   },
   "keywords": ["merobox", "calimero", "blockchain", "cli"],
   "author": "Calimero Network",
@@ -30,5 +39,10 @@
     "type": "git",
     "url": "https://github.com/calimero-network/merobox-js.git"
   },
-  "homepage": "https://github.com/calimero-network/merobox-js#readme"
+  "homepage": "https://github.com/calimero-network/merobox-js#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
