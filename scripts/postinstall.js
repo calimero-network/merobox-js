@@ -6,7 +6,7 @@ import crypto from 'node:crypto';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-const VERSION = process.env.MEROBOX_VERSION || "v0.1.23"; // pin to merobox release tag
+const VERSION = process.env.MEROBOX_VERSION || "v0.1.27"; // pin to merobox release tag
 const PLATFORM = detect(); // { os: 'darwin'|'linux'|'win32', arch: 'x64'|'arm64', libc: 'glibc'|'musl'|null }
 const assetName = makeAssetName(VERSION, PLATFORM);
 // e.g. merobox-v0.1.0-darwin-arm64 (add .exe on Windows)

@@ -104,7 +104,7 @@ Note: Windows is not currently supported by merobox releases.
 
 ## Environment Variables
 
-- `MEROBOX_VERSION`: Override the merobox version to download (default: v0.1.23)
+- `MEROBOX_VERSION`: Override the merobox version to download (default: v0.1.27)
 
 ## Troubleshooting
 
